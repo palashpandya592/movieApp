@@ -7,6 +7,7 @@ class MovieListController extends GetxController {
   RxList<Movies>? movieList = <Movies>[].obs;
   Api _api = locator<Api>();
 
+  
   @override
   void onInit() {
     fetchPopularMovie();
