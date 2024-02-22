@@ -23,9 +23,9 @@ class MovieListView extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate(
                       (context, index) {
                     return MovieListWidget(
-                        movieList: controller.movieList[index]);
+                        movieList: controller.movieList![index]);
                   },
-                  childCount: controller.movieList.length,
+                  childCount: controller.movieList!.length,
                 ),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount:

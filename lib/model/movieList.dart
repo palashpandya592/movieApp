@@ -1,7 +1,7 @@
 class MovieListData {
-  int statusCode;
-  String message;
-  MovieList data;
+  int? statusCode;
+  String? message;
+  MovieList? data;
 
   MovieListData({this.statusCode, this.message, this.data});
 
@@ -16,22 +16,22 @@ class MovieListData {
     data['status_code'] = this.statusCode;
     data['message'] = this.message;
     if (this.data != null) {
-      data['data'] = this.data.toJson();
+      data['data'] = this.data?.toJson();
     }
     return data;
   }
 }
 
 class MovieList {
-  List<Movies> movies;
+  List<Movies>? movies;
 
   MovieList({this.movies});
 
   MovieList.fromJson(Map<String, dynamic> json) {
     if (json['movies'] != null) {
-      movies = new List<Movies>();
+      movies =  [];
       json['movies'].forEach((v) {
-        movies.add(new Movies.fromJson(v));
+        movies?.add(new Movies.fromJson(v));
       });
     }
   }
@@ -39,22 +39,22 @@ class MovieList {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.movies != null) {
-      data['movies'] = this.movies.map((v) => v.toJson()).toList();
+      data['movies'] = this.movies?.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Movies {
-  int id;
-  String name;
-  String year;
-  String director;
-  String mainStar;
-  String description;
-  int favoritedByUsers;
-  List<String> genres;
-  String thumbnail;
+  int? id;
+  String? name;
+  String? year;
+  String? director;
+  String? mainStar;
+  String? description;
+  int? favoritedByUsers;
+  List<String>? genres;
+  String? thumbnail;
 
   Movies(
       {this.id,

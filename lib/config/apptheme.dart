@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/constant/color_constants.dart';
 
 class AppTheme extends StatelessWidget {
-  const AppTheme({this.child});
+  const AppTheme({required this.child});
 
   final Widget child;
 
@@ -16,14 +16,13 @@ class AppTheme extends StatelessWidget {
     accentIconTheme: Theme.of(context).accentIconTheme.copyWith(color: accentColor),
     accentColor: accentColor,*/
         canvasColor: Colors.transparent,
-        backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.black,
         appBarTheme: Theme.of(context).appBarTheme.copyWith(
             elevation: 0,
             color: ColorConstants.primaryColor,
             centerTitle: true),
         textTheme: Theme.of(context).textTheme.copyWith(
-              caption: const TextStyle(color: Colors.white, fontSize: 22),
+              bodySmall: const TextStyle(color: Colors.white, fontSize: 22),
             ),
         /*floatingActionButtonTheme:
     Theme.of(context).floatingActionButtonTheme.copyWith(
@@ -33,7 +32,7 @@ class AppTheme extends StatelessWidget {
               textTheme: ButtonTextTheme.normal,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15)),
-            ),
+            ), colorScheme: ColorScheme.light(primary: Colors.white),
       );
 
   @override

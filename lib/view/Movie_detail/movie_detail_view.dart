@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie_app/componet/commonAppbar.dart';
-import 'package:movie_app/constant/StringConstant.dart';
 import 'package:movie_app/constant/color_constants.dart';
 import 'package:movie_app/model/movieList.dart';
 
@@ -16,15 +15,15 @@ class MovieDetailView extends StatelessWidget {
       appBar: customAppbar(
           onPress: () {
             Get.back();
-          }, title: "${movie?.name} (${movie?.year})"),
+          }, title: "${movie.name} (${movie.year})"),
       body: SingleChildScrollView(
         child: Column(
           children: [
             AspectRatio(
               aspectRatio: 0.8,
-              child: Image.network(movie?.thumbnail),
+              child: Image.network(movie.thumbnail??""),
             ),
-            if(movie?.genres?.isNotEmpty)
+            if(movie.genres!.isNotEmpty)
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -41,7 +40,7 @@ class MovieDetailView extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      "${movie.genres.join(",")}",
+                      "${movie.genres!.join(",")}",
                       style: TextStyle(
                           height: 1,
                           color: ColorConstants.whiteColor,
@@ -52,7 +51,7 @@ class MovieDetailView extends StatelessWidget {
                 ],
               ),
             ),
-            if(movie?.director?.isNotEmpty)
+            if(movie.director!.isNotEmpty)
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -69,7 +68,7 @@ class MovieDetailView extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      "${movie?.director}",
+                      "${movie.director}",
                       style: TextStyle(
                           height: 1,
                           color: ColorConstants.whiteColor,
@@ -80,7 +79,7 @@ class MovieDetailView extends StatelessWidget {
                 ],
               ),
             ),
-            if(movie?.mainStar?.isNotEmpty)
+            if(movie.mainStar!.isNotEmpty)
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -97,7 +96,7 @@ class MovieDetailView extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      "${movie?.mainStar}",
+                      "${movie.mainStar}",
                       style: TextStyle(
                           height: 1,
                           color: ColorConstants.whiteColor,
@@ -108,7 +107,7 @@ class MovieDetailView extends StatelessWidget {
                 ],
               ),
             ),
-            if(movie?.description?.isNotEmpty)
+            if(movie.description!.isNotEmpty)
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -117,7 +116,7 @@ class MovieDetailView extends StatelessWidget {
                 children: [
                   Flexible(
                     child: Text(
-                      "${movie?.description}",
+                      "${movie.description}",
                       style: TextStyle(
                           height: 1,
                           color: ColorConstants.whiteColor,

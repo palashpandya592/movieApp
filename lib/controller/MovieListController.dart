@@ -4,7 +4,7 @@ import 'package:movie_app/utils/api.dart';
 import 'package:movie_app/utils/locator.dart';
 
 class MovieListController extends GetxController {
-  var movieList = List<Movies>().obs;
+  RxList<Movies>? movieList = <Movies>[].obs;
   Api _api = locator<Api>();
 
   @override
@@ -16,7 +16,7 @@ class MovieListController extends GetxController {
 
   Future<MovieListData> fetchPopularMovie() async {
     MovieListData response = await _api.getMovieList();
-    movieList.assignAll(response.data.movies);
+    movieList?.assignAll(response.data!.movies??[]);
     return response;
   }
 }

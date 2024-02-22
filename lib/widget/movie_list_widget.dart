@@ -5,9 +5,8 @@ import 'package:movie_app/model/movieList.dart';
 import 'package:movie_app/view/Movie_detail/movie_detail_view.dart';
 
 class MovieListWidget extends StatelessWidget {
-  MovieListWidget({Key key, @required this.movieList})
-      : assert(movieList != null),
-        super(key: key);
+  MovieListWidget({Key? key, required this.movieList})
+      : super(key: key);
 
   final Movies movieList;
 
@@ -40,7 +39,7 @@ class MovieListWidget extends StatelessWidget {
             ),
             Center(
               child: Text(
-                movieList.name,
+                movieList.name??"",
                 key: Key('movie_title_text'),
                 style: TextStyle(
                   color: ColorConstants.whiteColor,
@@ -54,7 +53,7 @@ class MovieListWidget extends StatelessWidget {
             ),
             Center(
               child: Text(
-                movieList.year,
+                movieList.year??"",
                 key: Key('movie_year_text'),
                 style: TextStyle(
                   color: ColorConstants.whiteColor,

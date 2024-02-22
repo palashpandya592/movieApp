@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-Widget customAppbar({
-  String title,
-  Function onPress,
+PreferredSizeWidget customAppbar({
+  required String title,
+  required Function? onPress,
 }) {
   return AppBar(
     title: Text(
@@ -10,7 +10,9 @@ Widget customAppbar({
     ),
     leading: IconButton(
       icon: Icon(Icons.arrow_back),
-      onPressed: onPress,
+      onPressed: (){
+        onPress;
+      },
     ),
   );
 }
